@@ -11,7 +11,8 @@ class Gallery extends Model
         'folder_id',
         'file',
         'izin',
-        'nama_tampilan'
+        'nama_tampilan',
+        'ukuran'
     ];
     //
 }

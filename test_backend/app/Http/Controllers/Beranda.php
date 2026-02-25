@@ -37,12 +37,15 @@ class Beranda extends Controller
 
             Storage::putFileAs('data_user/' . auth()->id(),$file,$nama_file);
 
+            $ukuran_file = $file->getSize();
+
             
 
             Gallery:: create([
                 'user_id' => auth()->id(),
                 'file' => $nama_file,
-                'nama_tampilan' => $nama_file
+                'nama_tampilan' => $nama_file,
+                'ukuran' => $ukuran_file
 
             ]);
             $nama_tampil = $nama_file;
@@ -419,7 +422,7 @@ class Beranda extends Controller
 
         $status_rename = 'File berhasil direname!';  
 
-        return view('beranda',compact('status_rename'));
+        return view('beranda',compact(var_name: 'status_rename'));
 
         
 

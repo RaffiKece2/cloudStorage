@@ -38,7 +38,7 @@
             <li><p>Nama saya M.Raffi Putra Umaryono, saya dari siswa SMKN 1 LUMAJANG </p></li>
             <li>
                 <p>Saat ini saya sedang mendalami pengembangan Artificial Intelligence (AI), Internet of Things (IoT), dan pemrograman Python tingkat lanjut. Saya tertarik mempelajari bagaimana proses AI bekerja serta bagaimana mengintegrasikan teknologi dengan perangkat IoT untuk menciptakan solusi yang bermanfaat.</p>
-            </li>
+            </li>z
         </ul>
     </div>
 
@@ -67,8 +67,69 @@
 
 
         <button>
+
+            <img src="" alt="">
             
         </button>
+
+        <h3>Kriptografi</h3>
+        <p>membuat sebuah teks menjadi enkripsi AES dan RSA</p>
+        <p>Tech:Python, modul Cryptography</p>
+
+        <button>
+            <img src="" alt="">
+        </button>
+
+        <h3>ChatBot</h3>
+        <p>membuat chabot dari JSON yang sederhana</p>
+        <p>Tech:Python, modul JSON</p>
+
+        <button>
+            <img src="" alt="">
+        </button>
+
+        <h3>OpenCV</h3>
+        <p>membuat handtracking agar bisa mendeteksi tangan</p>
+        <p>Tech:Python, modul OpeCV dan Mediapipe</p>
+
+        <button>
+            <img src="" alt="">
+        </button>
+
+        <h3>IoT</h3>
+        <p>membuat perangkat keras dengan arduino sensor ultra sonic</p>
+        <p>Tech:Arduino, tinkercard </p>
+
+    </div>
+
+    <div>
+        <h1>Contact Us</h1>
+
+        <p>kalau tertarik, tentu anda bisa hubungi saya kalau ingin berdikusi tentang teknologi dan soal pemograman ataupun ingin berkerja sama dengan kami. </p>
+
+        <ul>
+            <li><button><img src="" alt=""></button></li>
+            <li>keceraffi2@gmail.com</li>
+        </ul>
+
+         <ul>
+            <li><button><img src="" alt=""></button></li>
+            <li><a href=""></a></li>
+        </ul>
+
+         <ul>
+            <li><button><img src="" alt=""></button></li>
+            <li>Vyseraffi</li>
+        </ul>
+
+         <ul>
+            <li><button><img src="" alt=""></button></li>
+            <li>+62 81229437477</li>
+        </ul>
+
+        <footer>
+            <p>&copy; 2026 raffiPutra. Hak cipta dilindungi</p>
+        </footer>
 
     </div>
 

@@ -93,6 +93,7 @@
                     <button>{{ $hasil_file->nama_tampilan }}</button>
 
                 </form>
+                <p>Ukuran: {{ $hasil_file->ukuran }}</p>
 
                 <form action="/rename_file/{{ $hasil_file->id }}">
                     <button>Rename</button>
