@@ -1,0 +1,616 @@
+body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: white;
+    background-color: black;
+    overflow-x: hidden;
+
+}
+
+
+
+#navbar {
+    background-color: cadetblue;
+    width: 100px;
+    height: 100vw;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: fixed;
+    transition: 0.1s ease-in;
+    border-radius: 5px;
+    z-index: 999;
+    top: 1px;
+    left: 1px;
+
+
+}
+
+#navbar.aktif {
+    width: 230px;
+    transition: 0.3s ease-out;
+    box-shadow: 1px 8px 30px rgb(90, 90, 90);
+    z-index: 999;
+
+}
+
+#burger {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    position: relative;
+    left: 25px;
+    top: 10px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    align-items: center;
+    width: 50px;
+    height: 30px;
+    justify-content: center;
+}
+
+#burger:hover {
+    background-color: grey;
+    border-radius: 10px;
+ 
+}
+
+
+#burger span {
+    background-color: white;
+    width: 30px;
+    height: 3px;
+    border-radius: 5px;
+    
+
+  
+}
+
+
+
+
+
+
+
+.isi {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: -5px;
+    left: -2px;
+
+}
+
+#list {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+    cursor: pointer;
+    white-space: nowrap;
+    height: 50px;
+    width: 59px;
+    align-items: center;
+    position: relative;
+    left: -1px;
+    top: -1px;
+    
+}
+
+#list:hover {
+    background-color: grey;
+    border-radius: 100px;
+
+}
+
+#list.lebar:hover {
+    background-color: grey;
+    width: 185px;
+}
+
+#list1 {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+    cursor: pointer;
+    white-space: nowrap;
+    position: relative;
+    height: 50px;
+    width: 59px;
+    align-items: center;
+    text-align: center;
+    top: -20px;
+    left: -5px;
+
+  
+ 
+
+    
+}
+
+#list1:hover {
+    background-color: grey;
+    border-radius: 100px;
+
+   
+
+}
+
+#list1.lebar1:hover {
+    background-color: grey;
+    width: 185px;
+}
+
+
+#list2 {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+    cursor: pointer;
+    white-space: nowrap;
+    height: 50px;
+    width: 59px;
+    align-items: center;
+    position: relative;
+    top: -30px;
+    left: -1px;
+}
+
+#list2:hover {
+    background-color: grey;
+    border-radius: 100px;
+    
+
+}
+
+#list2.lebar2:hover {
+    background-color: grey;
+    width: 185px;
+}
+
+
+
+#list3 {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+    cursor: pointer;
+    white-space: nowrap;
+    height: 50px;
+    align-items: center;
+    width: 59px;
+    position: relative;
+    top: -40px;
+    left: -2px;
+    
+}
+
+#list3:hover {
+    background-color: grey;
+   
+    border-radius: 100px;
+
+}
+
+#list3.lebar3:hover {
+    background-color: grey;
+    width: 185px;
+    
+}
+
+
+
+
+.isi2 {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 620px;
+    
+}
+
+#akun {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+    white-space: nowrap;
+    cursor: pointer;
+    height: 50px;
+    align-items: center;
+    width: 59px;
+    position: relative;
+    top: -20px;
+
+}
+
+#akun:hover {
+    background-color: grey;
+    border-radius: 100px;
+ 
+   
+}
+
+#akun.tepat:hover {
+    background-color: grey;
+    width: 185px;
+
+  
+ 
+}
+
+.user {
+    font-size: 25px;
+    color: white;
+}
+#kata4 {
+    font-size: 18px;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.dompet {
+    font-size: 25px;
+    color: white;
+}
+#kata {
+    font-size: 18px;
+    visibility: hidden;
+    opacity: 0;
+    position: relative;
+    left: 5px;
+    
+}
+
+#kata1 {
+    font-size: 18px;
+    visibility: hidden;
+    opacity: 0;
+    position: relative;
+    left: 1px;
+}
+
+#kata2 {
+    font-size: 18px;
+    visibility: hidden;
+    opacity: 0;
+    position: relative;
+    left: 10px;
+}
+
+#kata3 {
+    font-size: 18px;
+    visibility: hidden;
+    opacity: 0;
+    position: relative;
+    left: 10px;
+}
+
+#kata.muncul {
+    visibility: visible;
+    opacity: 1;
+    transition: 0.3s ease-out;
+}
+#kata1.muncul1 {
+    visibility: visible;
+    opacity: 1;
+    transition: 0.3s ease-out;
+}
+
+#kata2.muncul2 {
+    visibility: visible;
+    opacity: 1;
+    transition: 0.3s ease-out;
+}
+
+#kata3.muncul3 {
+    visibility: visible;
+    opacity: 1;
+    transition: 0.4s ease-out;
+}
+#kata4.muncul4 {
+    visibility: visible;
+    opacity: 1;
+    transition: 0.3s ease-out;
+}
+
+.judul {
+    width: 100vw;
+    height: 80px;
+    position: fixed;
+    top: -1px;
+    left: 0;
+    z-index: 100;
+    border-radius: 10px;
+    background: linear-gradient(
+        350deg,
+        #6e6e6e,
+        #464646,
+        #666666
+    );
+   
+}
+
+
+.pencari {
+    position: fixed;
+    right: 150px;
+    top: 30px;
+    width: 250px;
+    border-radius: 10px;
+    height: 28px;
+    color: white;
+    background-color: gray;
+    border: none;
+    font-size: 16px;
+    
+}
+
+.pencari::placeholder {
+    color: white;
+    opacity: 0.5;
+}
+
+#posi {
+    color: rgb(255, 255, 255);
+
+    font-size: 30px;
+    left: 120px;
+    top: -10px;
+    transition: 0.2s ease-in;
+    position: relative;
+   
+}
+
+#posi.merubah {
+    left: 240px;
+    transition: 0.1s ease-out;
+}
+
+
+
+.cari {
+    color: rgb(255, 255, 255);
+    right: 80px;
+    top: 25px;
+    font-size: 30px;
+    position: fixed;
+    cursor: pointer;
+    border: none;
+    background: none;
+    border-radius: 10px;
+    transition: 0.1s ease-in;
+}
+.cari:hover {
+    background: linear-gradient(
+        145deg,
+        rgb(0, 121, 151),
+        rgb(0, 154, 192),
+        rgb(0, 93, 129)
+
+    );
+    color: white;
+    transition: 0.2s ease-out;
+}
+
+
+
+#barang {
+    cursor: pointer;
+    color: white;
+    background-color: black;
+    border: 1px solid white;
+    transition: 0.1s ease-out;
+    border-radius: 10px;
+    
+
+}
+
+#barang:hover {
+    background-color: rgb(29, 29, 29);
+    border-width: 1px;
+    border-color: aqua;
+    transition: 0.2s ease-in;
+
+}
+
+#barang:active {
+    background-color: aquamarine;
+    color: black;
+}
+
+
+.nama {
+
+    font-size: 20px;
+    font-weight:bold ;
+}
+.harga {
+    
+    font-size: 20px;
+
+}
+.info {
+    font-size: 20px;
+
+}
+
+.keranjang {
+    position: absolute;
+    right: 20px;
+    top: 100px;
+    font-size: 30px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: white;
+    
+}
+.keranjang:hover {
+    color: aquamarine;
+}
+
+.keranjang:active {
+    color: aqua;
+    transform: scale(1.1);
+}
+
+.gambar {
+    position: relative;
+    top: 10px;
+    border-radius: 10px;
+}
+
+#divv {
+    position: absolute;
+    top: 145px;
+    left: 88px;
+    display: block;
+    
+
+}
+#divv.ko {
+    left: 200px;
+}
+
+#divv li {
+    list-style: none;
+}
+
+.kolom {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+
+.gambar {
+    width: 350x;
+    height: 250px;
+}
+
+.notif {
+
+    position: absolute;;
+    color: grey;
+    right:500px;
+    bottom: 45%;
+    font-weight: bold;
+    font-size: 30px;
+    transition: 0.2 ease;
+
+}
+
+#container {
+    position: relative;
+    top: 5px;
+    left: -10px;
+    border: none;
+    height: 60px;
+    background: none;
+    color: white;
+}
+
+
+
+#beranda {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+    cursor: pointer;
+    white-space: nowrap;
+    position: relative;
+    height: 50px;
+    width: 59px;
+    align-items: center;
+    text-align: center;
+
+}
+
+#beranda:hover {
+    background-color: grey;
+    border-radius: 100px;
+}
+
+#beranda.dowo:hover {
+    background-color: grey;
+    width: 185px;
+
+}
+
+
+.house {
+    font-size: 25px;
+}
+
+#rumah {
+    font-size: 18px;
+    visibility: hidden;
+    opacity: 0;
+
+}
+
+#rumah.aktif1 {
+    visibility: visible;
+    opacity: 1;
+}
+
+
+
+@media (max-width: 576px) {
+
+    .pencari {
+        top: 15px;
+        left: 200px;
+        width: 150px;
+
+    }
+    .cari {
+        right:920px ;
+        top: 15px;
+        font-size: 24px;
+    }
+    #navbar {
+        width: 50px;
+        height: 160vw;
+        position: fixed;
+    }
+    #navbar.aktif {
+        width: 160px;
+    }
+    #burger {
+        left: 1px;
+    }
+    #list {
+        left: -25px;
+    }
+    #list1 {
+        left: -25px;
+
+    }
+    #list2 {
+        left: -25px;
+    }
+    #list3 {
+        left: -25px;
+    }
+    #akun {
+        left: -25px;
+    }
+    #posi {
+        left: 55px;
+        font-size: 20px;
+    }
+    .judul {
+        height: 50px;
+    }
+    .keranjang {
+        top: 60px;
+        font-size: 20px;
+        right: 10px;
+    }
+
+}

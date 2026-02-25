@@ -1,0 +1,153 @@
+
+body {
+    white-space: nowrap;
+}
+
+.divvv {
+    position: absolute;
+    left: 100px;
+    top: 100px;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    gap: 200px;
+}
+
+.gambar {
+    width: 130%;
+    height: 83%;
+}
+.pesan {
+    font-size: 28px;
+    font-weight: bold;
+    
+}
+
+.harga1 {
+    color: rgb(119, 178, 233);
+    font-size: 35px;
+}
+
+.tempat {
+    display: flex;
+    flex-direction: column;
+}
+
+.wadah {
+    position: relative;
+    top: 170px;
+    background: none;
+    color: white;
+    width: 180px;
+    height: 40px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    transition: 0.1s ease-in;
+}
+
+.wadah:hover {
+    border-radius: 10px;
+    border-style: dotted;
+    border-color: aquamarine;
+    transition: 0.3s ease-out;
+}
+
+.wadah:active {
+    border: none;
+    background-color: aquamarine;
+    color: black;
+    transition: 0.15s ease;
+}
+
+.beli {
+    position: relative;
+    top: 450px;
+    width: 200px;
+    height: 45px;
+    right: 170px;
+    font-size: 20px;
+    cursor: pointer;
+    background: linear-gradient(
+        140deg,
+        rgb(110, 185, 255),
+        rgb(0, 132, 172),
+        rgb(22, 162, 226)
+    );
+    color: white;
+    border-radius: 10px;
+    border: none;
+    transition: 0.2s ease-in;
+}
+
+.beli:hover {
+    transform: scale(1.1);
+    transition: 0.3s ease-out;
+    background: linear-gradient(
+        120deg,
+        rgb(0, 131, 136),
+        rgb(94, 191, 255),
+        rgb(0, 101, 119)
+    );
+}
+.beli:active {
+    border-style: double;
+    border-color: white;
+    border-width: 5px;
+    background: linear-gradient(
+        150deg,
+        rgb(179, 179, 179),
+        rgb(77, 77, 77),
+        rgb(196, 196, 196)
+    );
+    
+}
+
+.ngatur_jumlah {
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    font-size: 28px;
+}
+
+.plus {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    top: 25px;
+    right: 50px;
+    font-size: 30px;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+.minus {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    top: 25px;
+    right: 120px;
+    font-size: 30px;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.minus:hover {
+    color: aquamarine;
+
+}
+.plus:hover {
+    color: aquamarine;
+}
+
+.nilai {
+    position: relative;
+    left: 10px;
+
+}

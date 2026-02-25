@@ -1,0 +1,141 @@
+body {
+    white-space: nowrap;
+    
+}
+
+.tempat_barang {
+    position: absolute;
+    left: 100px;
+    top: 80px;
+}
+.coulm {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    gap: 80px;
+}
+
+.gambar1 {
+    width: 150px;
+    border-radius: 30px;
+
+}
+
+.btn {
+       width: 650px;
+       display: flex;
+       justify-content: flex-start;
+        background-color: cadetblue;
+        width: 650px;
+        border-radius: 30px;
+        border: none;
+        cursor: pointer;
+        transition: 0.2s ease-in;
+
+}
+
+.btn:hover {
+    background: linear-gradient(
+        130deg,
+        rgb(0, 119, 199,0.1),
+        rgb(8, 197, 211,0.2),
+        rgb(0, 41, 175,0.1)
+    );
+    color: white;
+    transition: 0.1s ease-out;
+
+}
+
+.btn:active {
+    background-color: grey;
+}
+
+.lom {
+    position: relative;
+    top: 50px;
+    right: 150px;
+  
+
+}
+
+.ow {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    gap: 200px;
+    justify-content: flex-start;
+
+
+}
+
+.teks1 {
+    position: relative;
+    left: 60px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.teks2 {
+    font-size: 16px;
+
+}
+.para_but {
+    position: relative;
+    left: 650px;
+    bottom: 90px;
+}
+
+.kolom_btn {
+    list-style: none;
+    gap: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.buy {
+    width: 130px;
+    height: 45px;
+    font-size: 17px;
+    cursor: pointer;
+    background: linear-gradient(
+        140deg,
+        rgb(110, 185, 255),
+        rgb(0, 132, 172),
+        rgb(22, 162, 226)
+    );
+    color: white;
+    border-radius: 10px;
+    border: none;
+}
+.buy:hover {
+       background: linear-gradient(
+        120deg,
+        rgb(0, 131, 136),
+        rgb(94, 191, 255),
+        rgb(0, 101, 119)
+    );
+}
+
+.buy:active {
+    border-style: double;
+    border-color: white;
+    border-width: 5px;
+    background: linear-gradient(
+        150deg,
+        rgb(179, 179, 179),
+        rgb(77, 77, 77),
+        rgb(196, 196, 196)
+    );
+    transition: 0.1s ease;
+}
+
+.hapus {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 17px;
+    width: 120px;
+    cursor: pointer;
+}
+
+
