@@ -14,6 +14,13 @@
         <button>Beranda</button>
     </form>
 
+ 
+
+    @if (session('error'))
+        <p>{{ session('error') }}</p>
+    
+    @endif
+
     <form action="/folder" method="POST">
         @csrf
         <input placeholder="Nama Folder" name="nama" type="text">
@@ -35,14 +42,29 @@
     
     @endif
 
+    @if (isset($status))
+        <p>{{ $status }}</p>
+    
+    @endif
+
 
     @foreach ($isi_folder->files as $isi_file )
         <button>{{ $isi_file->file }}</button>
 
+        <p>Ukuran: {{ $isi_file->ukuran_format }}</p>
+        <p>Tanggal Upload: {{ $isi_file->created_at->format('d-m-Y') }}</p>
+
         <form action="/hapus_file/{{ $isi_file->id }}" method="GET">
             <button>Hapus</button>
         </form>
-    
+
+        <form action="/download_subfile/{{ $isi_file->id }}">
+            <button>Download</button>
+        </form>
+
+        <form action="/rename_subfile/{{ $isi_file->id }}">
+            <button>Rename</button>
+        </form>
     @endforeach
 
     @foreach ($isi_folder->children as $subfolder )
@@ -50,6 +72,8 @@
             <button>{{ $subfolder->nama_folder }}</button>
 
         </form>
+
+        <p> Tanggal Upload: {{ $subfolder->created_at->format('d-m-Y') }}</p>
 
         <form action="/hapus_subfolder/{{ $subfolder->id }}" method="GET">
             <button>Hapus</button>

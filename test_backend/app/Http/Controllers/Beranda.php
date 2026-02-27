@@ -33,7 +33,7 @@ class Beranda extends Controller
         if ($upload->hasFile('upload')) {
             $file = $upload->file('upload');
 
-            $nama_file = Str::uuid() . '_' . $file->getClientOriginalName();
+            $nama_file =  $file->getClientOriginalName();
 
             Storage::putFileAs('data_user/' . auth()->id(),$file,$nama_file);
 
@@ -48,6 +48,8 @@ class Beranda extends Controller
                 'ukuran' => $ukuran_file
 
             ]);
+
+            
             $nama_tampil = $nama_file;
 
             $koin_user = Wallet::firstOrCreate(
@@ -209,20 +211,24 @@ class Beranda extends Controller
     public function upload_subfolder(Request $upload_subfolder)
     {
         $upload_subfolder->validate(rules: [
-            'upload' => 'required|image|mimes:png,jpg,jpeg|max:2048',
+            'upload' => 'required|file|mimetypes:image/jpeg,image/png,image/jpg,application/pdf|max:2048'
 
         ]);
 
         if ($upload_subfolder->hasFile('upload')) {
             $file = $upload_subfolder->file('upload');
 
-            $nama = time() . '_' . $file->getClientOriginalName();
+            $nama =  $file->getClientOriginalName();
+
+            $ukuran = $file->getSize();
 
 
             Gallery::create([
                 'user_id' => auth()->id(),
                 'folder_id' => $upload_subfolder->input('folder_id'),
-                'file' => $nama
+                'file' => $nama,
+                'ukuran' => $ukuran,
+                'nama_tampilan' => $nama
 
 
             ]);
@@ -244,9 +250,6 @@ class Beranda extends Controller
             if ($parent_id) {
                 $folder_kedua = Folder::find($parent_id);
                 $tempat_file = 'data_user/' . $akun . '/' . $folder_kedua->nama_folder . '/' . $folder_utama->nama_folder;
-            }else {
-                $tempat_file = 'data_user';
-
             }
 
             Storage::putFileAs($tempat_file,$file,$nama);
@@ -424,7 +427,95 @@ class Beranda extends Controller
 
         return view('beranda',compact(var_name: 'status_rename'));
 
-        
+    }
+
+    public function download_subfile($id)
+    {
+        $cari_file = Gallery::findOrFail($id);
+        $id_folder = $cari_file->folder_id;
+
+        $cari_folder = Folder::find($id_folder);
+        $parent_id = $cari_folder->parent_id;
+
+        $user = auth()->id();
+
+        if ($cari_folder->id) {
+            $tempat = 'data_user/' . $user . '/'.  $cari_folder->nama_folder .'/' . $cari_file->file;
+        }
+
+        if ($parent_id) {
+            $folder_utama = Folder::find($parent_id);
+            $tempat = 'data_user/' . $user. '/' . $folder_utama->nama_folder . '/' . $cari_folder->nama_folder . '/' . $cari_file->file; 
+
+        }
+
+
+        if ($cari_file->user_id != auth()->id()) {
+
+            return back()->with('error','File tidak bisa didownload!');
+        }
+
+
+        return Storage::download($tempat);
 
     }
+
+    public function pindah_rename($id)
+    {
+        $cari_folder = Folder::find($id);
+
+
+        return view('rename_folder',compact('cari_folder'));
+    }
+
+    public function rename_f(Request $rename_folder, $id)
+    {
+        $ubah = Folder::find($id);
+
+        $rename_folder->validate([
+            'rename' => 'required'
+        ]);
+
+        $pemisah = str_replace(' ', '_', $rename_folder->input('rename'));
+
+        $ubah->update([
+            'nama_folder' => $pemisah
+        ]);
+
+        $pesan_berubah = 'File berhasil direname';
+
+
+        return view('beranda',compact('pesan_berubah'));
+
+
+    }
+
+    public function pindah_renamesub($id)
+    {
+        $cari_file = Gallery::find($id);
+
+
+        return view('rename_file',compact('cari_file'));
+    }
+
+    public function rename_sekarang(Request $ubah , $id)
+    {
+        $ubah_file = Gallery::find($id);
+
+
+        $ubah->validate([
+            'rename' => 'required'
+        ]);
+
+        $pemisah = str_replace(' ','_', $ubah->input('rename'));
+
+        $ubah_file->update([
+            'file' => $pemisah
+        ]);
+        $status = 'File berhasil direname';
+
+        return view('isi',compact('status'));
+    }
+
+
 }

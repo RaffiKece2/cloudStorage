@@ -3,20 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    @if (isset($ubah_nama))
-        <title>{{ $ubah_nama->file }}</title>
-    @endif
+    @if (isset($cari_file))
+        <title>{{ $cari_file }}</title>
     
+    @endif
+   
 </head>
 <body>
-    @if (isset($ubah_nama))
-        <h1>Rename File: {{ $ubah_nama->file }}</h1>
+
+    @if (isset($cari_file))
+        <h1>Rename: {{ $cari_file->file }}</h1>
     
     @endif
 
-    @if (isset($ubah_nama))
-        <form action="/rename/{{ $ubah_nama->id }}">
-            <input value="{{ $ubah_nama->nama_tampilan }}" name="ubah_nama" type="text">
+
+    @if (isset($cari_file))
+        <form action="/rename_sekarang/{{ $cari_file->id }}">
+            <input name="rename" type="text">
             <button>Rename</button>
         </form>
     
@@ -25,8 +28,6 @@
     <form action="/beranda/{{ auth()->id() }}">
         <button>Beranda</button>
     </form>
-
-  
     
 </body>
 </html>

@@ -72,6 +72,13 @@ Route::middleware(['auth','verified'])->group( function () {
     Route::post('/rename/{id}', [Beranda::class,'rename' ]);
     Route::get('/rename/{id}', [Beranda::class, 'rename']);
 
+    Route::get('/rename_folder/{id}', [Beranda::class, 'pindah_rename']);
+    Route::post('/rename_f/{id}', [Beranda::class, 'rename_f']);
+    Route::get('/rename_f/{id}', [Beranda::class, 'rename_f']);
+
+    Route::get('/rename_subfile/{id}',[Beranda::class,'pindah_renamesub' ]);
+    Route::post('/rename_sekarang/{id}', [Beranda::class, 'rename_sekarang']);
+
     
 }
 
@@ -80,6 +87,7 @@ Route::middleware(['auth','verified'])->group( function () {
 
 Route::middleware(['auth','throttle:10,1'])->group( function () {
     Route::get('/download/{id}', [Beranda::class, 'download_file' ]);
+    Route::get('/download_subfile/{id}',[Beranda::class,'download_subfile' ]);
 }
 
 );

@@ -93,7 +93,8 @@
                     <button>{{ $hasil_file->nama_tampilan }}</button>
 
                 </form>
-                <p>Ukuran: {{ $hasil_file->ukuran }}</p>
+                <p>Ukuran: {{ $hasil_file->ukuran_format }}</p>
+                <p>Tanggal Upload: {{ $hasil_file->created_at->format('d-m-Y') }}</p>
 
                 <form action="/rename_file/{{ $hasil_file->id }}">
                     <button>Rename</button>
@@ -145,14 +146,21 @@
 
         </form>
 
+        <p> Tanggal Upload: {{ $newFolder->created_at->format('d-m-Y') }}</p>
+
         <form action="/masuk_izin/{{ $newFolder->id }}">
             <button>Perizinan Folder</button>
+        </form>
+
+        <form action="/rename_folder/{{ $newFolder->id }}">
+            <button>Rename Folder</button>
         </form>
 
         <form action="/hapus_folder/{{ $newFolder->id }}" method="GET">
             @csrf
             <button>Hapus</button>
         </form>
+
     
     @endforeach
 
