@@ -78,6 +78,24 @@ Route::middleware(['auth','verified'])->group( function () {
 
     Route::get('/rename_subfile/{id}',[Beranda::class,'pindah_renamesub' ]);
     Route::post('/rename_sekarang/{id}', [Beranda::class, 'rename_sekarang']);
+    Route::get('/rename_sekarang/{id}', [Beranda::class, 'rename_sekarang']);
+
+    Route::get('/pindah_perizinan/{id}', [Beranda::class,'pindah_subfolder' ]);
+    Route::post('/pindah_perizinan/{id}', [Beranda::class,'pindah_subfolder' ]);
+
+
+    Route::post('/perizinan_subfolder/{id}',[Beranda::class, 'ubah_perizinan']);
+
+
+    Route::get('/perizinan_subfile/{id}',[Beranda::class, 'perizinan_subfile']);
+    Route::post('/perizinan_subfile/{id}',[Beranda::class, 'perizinan_subfile']);
+
+    Route::post('/izin_subfile/{id}', [Beranda::class,'izin_subfile' ]);
+
+    Route::get('/rename_subfolder/{id}', [Beranda::class, 'rename_subfolder']);
+
+    Route::post('/subfolder_rename/{id}', [Beranda::class, 'renameFolder']);
+    Route::get('/subfolder_rename/{id}', [Beranda::class, 'renameFolder']);
 
     
 }

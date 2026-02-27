@@ -517,5 +517,93 @@ class Beranda extends Controller
         return view('isi',compact('status'));
     }
 
+    public function pindah_subfolder($id)
+    {
+        $folder_izin = Folder::find($id);
+
+        return view('izin_subfolder',compact('folder_izin'));
+    }
+
+    public function ubah_perizinan(Request $izinan,$id)
+    {
+        $izin_folder = Folder::find($id);
+
+        $izin_folder->update([
+            'permission' => $izinan->input('izin')
+        ]);
+
+
+        if ($izin_folder->permission == 1) {
+            
+            $pesan = 'public';
+        }
+        
+        
+        if ($izin_folder->permission == 0) {
+            $pesan = 'private';
+        }
+
+        return back()->with('status','File '. $izin_folder->nama_folder . ' Menjadi ' . $pesan);
+    }
+
+    public function perizinan_subfile($id)
+    {
+        $cari_file = Gallery::find($id);
+
+
+        return view('perizinan_subfile',compact('cari_file'));
+    }
+
+
+    public function izin_subfile(Request $izin_file, $id)
+    {
+        $file_perm = Gallery::find($id);
+
+        $file_perm->update([
+            'izin' => $izin_file->input('izin')
+        ]);
+
+        if ($izin_file->input('izin') == 0) {
+            $pesan = 'Private';
+        }
+
+        if ($izin_file->input('izin') == 1) {
+            $pesan = 'Public';
+        }
+
+
+        return back()->with('status','File ' . $file_perm->file . ' Menjadi ' . $pesan);
+    }
+
+    public function rename_subfolder($id)
+    {
+        $cari_folder = Folder::find($id);
+
+
+        return view('rename_subfolder',compact('cari_folder'));
+    }
+
+    public function renameFolder( Request $rename , $id)
+    {
+        $cari_folder = Folder::find($id);
+        
+        $rename->validate([
+            'rename' => 'required'
+        ]);
+
+        $pemisah = str_replace(' ','_',$rename->input('rename'));
+
+        $cari_folder->update([
+            'nama_folder' => $pemisah
+        ]);
+
+        $berubah = 'File berhasil direname'; 
+
+        return view('isi',compact('berubah'));
+    }
+
+  
+
+
 
 }

@@ -3,23 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    @if (isset($cari_file))
-        <title>{{ $cari_file->file }}</title>
+
+    @if (isset($cari_folder))
+        <title>{{ $cari_folder->nama_folder }}</title>
     
     @endif
-   
+    
 </head>
 <body>
 
-    @if (isset($cari_file))
-        <h1>Rename: {{ $cari_file->file }}</h1>
-    
-    @endif
+    @if (isset($cari_folder))
+        <h1>Rename: {{ $cari_folder->nama_folder }}</h1>
 
 
-    @if (isset($cari_file))
-        <form action="/rename_sekarang/{{ $cari_file->id }}">
-            <input value="{{ $cari_file->file }}" name="rename" type="text">
+
+        <form action="/subfolder_rename/{{ $cari_folder->id }}">
+            <input value="{{ $cari_folder->nama_folder }}" name="rename" type="text">
             <button>Rename</button>
         </form>
     
