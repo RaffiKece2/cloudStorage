@@ -97,6 +97,8 @@ Route::middleware(['auth','verified'])->group( function () {
     Route::post('/subfolder_rename/{id}', [Beranda::class, 'renameFolder']);
     Route::get('/subfolder_rename/{id}', [Beranda::class, 'renameFolder']);
 
+    Route::get('/open_file/{id}', [Beranda::class,'open_file' ]);
+
     
 }
 

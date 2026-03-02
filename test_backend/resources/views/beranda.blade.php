@@ -89,7 +89,7 @@
 
         
         @foreach (auth()->user()->galleries as $hasil_file )
-                <form action="">
+                <form action="/open_file/{{ $hasil_file->id }}">
                     <button>{{ $hasil_file->nama_tampilan }}</button>
 
                 </form>

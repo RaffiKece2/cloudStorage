@@ -11,8 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('folders', function (Blueprint $table) {
-            $table->boolean('permission')->default(true);
+        Schema::table('galleries', function (Blueprint $table) {
+            $table->boolean('izin')->default(true)->change();
             //
         });
     }
@@ -22,8 +22,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('folders', function (Blueprint $table) {
-            $table->dropColumn('permission');
+        Schema::table('galleries', function (Blueprint $table) {
+            $table->dropColumn('izin');
             //
         });
     }

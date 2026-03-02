@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Exception;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\User;
@@ -11,6 +12,7 @@ use App\Models\Wallet;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Folder;
 use Illuminate\Support\Str;
+use Spatie\PdfToText\Pdf;
 
 
 class Beranda extends Controller
@@ -129,7 +131,7 @@ class Beranda extends Controller
     {
         $isi_folder = Folder::with(relations: ['children', 'user'])->findOrFail(id: $id);
 
-        if ($isi_folder->user_id !== auth()->id()) {
+        if ($isi_folder->user_id !== auth()->id() && $isi_folder->permission == 0) {
             abort(403, 'maaf anda tidak ada perizinan');
         }
 
@@ -600,6 +602,60 @@ class Beranda extends Controller
         $berubah = 'File berhasil direname'; 
 
         return view('isi',compact('berubah'));
+    }
+
+
+    public function open_file($id)
+    {
+        $file = Gallery::find($id);
+
+        $tempat = storage_path('app/data_user/data_user/' . auth()->id() . '/' . $file->file);
+
+        if ($file->user_id != auth()->id() && $file->izin == 0)  {
+            
+            
+
+        }
+
+        if ($file->user_id != auth()->id() && $file->izin == 1) {
+            if (!file_exists($tempat)) {
+                return back()->with('error', 'file tidak ada');
+            }
+
+            try {
+                $parse = new \Smalot\PdfParser\Parser();
+                $pdf = $parse->parseFile($tempat);
+
+                $teks = $pdf->getText();
+
+                return view('lihat',compact('teks','file'));
+
+            } catch (\Exception $e ) {
+
+                return back()->with('status',$e->getMessage());
+            }
+
+
+        }
+
+        if (!file_exists($tempat)) {
+            return back()->with('error', 'file tidak ada');
+        }
+
+        try {
+            $parse = new \Smalot\PdfParser\Parser();
+            $pdf = $parse->parseFile($tempat);
+
+            $teks = $pdf->getText();
+
+            return view('lihat',compact('teks','file'));
+
+        } catch (\Exception $e ) {
+
+            return back()->with('status',$e->getMessage());
+        }
+
+
     }
 
   
